@@ -34,6 +34,11 @@
 #include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
+const char KEY_SUPPORTED_ISO_MODES[] = "iso-values";
+const char KEY_ISO_MODE[] = "iso";
+const char KEY_ZSL[] = "zsl";
+const char KEY_CAMERA_MODE[] = "camera-mode";
+
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -110,7 +115,7 @@ static char * camera_fixup_getparams(int id, const char * settings)
     params.unflatten(android::String8(settings));
 
     // fix params here
-    params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
+    params.set(KEY_SUPPORTED_ISO_MODES, iso_values[id]);
 
     /* Remove HDR on rear cam */
     if (id != 1) {
@@ -142,21 +147,21 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
     if(params.get("iso")) {
-        const char* isoMode = params.get(android::CameraParameters::KEY_ISO_MODE);
+        const char* isoMode = params.get(KEY_ISO_MODE);
         if(strcmp(isoMode, "ISO100") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "100");
+            params.set(KEY_ISO_MODE, "100");
         else if(strcmp(isoMode, "ISO200") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "200");
+            params.set(KEY_ISO_MODE, "200");
         else if(strcmp(isoMode, "ISO400") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "400");
+            params.set(KEY_ISO_MODE, "400");
         else if(strcmp(isoMode, "ISO800") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "800");
+            params.set(KEY_ISO_MODE, "800");
         else if(strcmp(isoMode, "ISO1600") == 0)
-            params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
-    }
+            params.set(KEY_ISO_MODE, "1600");
+    } 
 
-    params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
-    params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
+    params.set(KEY_ZSL, isVideo ? "off" : "on");
+    params.set(KEY_CAMERA_MODE, isVideo ? "0" : "1");
 
     android::String8 strParams = params.flatten();
 

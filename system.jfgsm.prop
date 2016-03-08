@@ -1,0 +1,12 @@
+#
+# from device/samsung/jflte/system.jfgsm.prop
+#
+# system.jfgsm.prop
+#
+
+telephony.lteOnGsmDevice=1
+ro.telephony.default_network=9
+telephony.radioAccessFamily=gsm
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+
+

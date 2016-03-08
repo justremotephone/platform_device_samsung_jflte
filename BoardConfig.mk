@@ -31,6 +31,10 @@ TARGET_OTA_ASSERT_DEVICE := jflte,jfltexx,i9505,GT-I9505,jgedlte,i9505g,GT-I9505
 
 COMMON_PATH := device/samsung/jflte
 
+# System properites
+
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
 USE_CLANG_PLATFORM_BUILD := true

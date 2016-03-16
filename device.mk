@@ -310,3 +310,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Common Qualcomm
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+
+# OpenGapps
+GAPPS_VARIANT := stock
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
+

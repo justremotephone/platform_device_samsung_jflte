@@ -21,23 +21,11 @@
 # lines, full and maguro, hence its name.
 #
 
-$(call inherit-product, device/samsung/jflte/aosp_jflte.mk)
+# Inherit from jfltexx device
+$(call inherit-product, device/samsung/jflte/jfltexx.mk)
 
-#needed properties and vendor blobs for GSM
-TARGET_SYSTEM_PROP += device/samsung/jflte/system.jfgsm.prop
-TARGET_NEEDS_JF_GSM_VENDOR_BLOBS := true
+# Open Gapps
+GAPPS_VARIANT := full
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
 
-#needed properties for our model
-PRODUCT_PROPERTY_OVERRIDES += \
-  ro.product.model=GT-I9505 \
-  ro.product.device=jflte
-
-#RAMDISK  
-#ro.product.name is needed by some vendor blobs (ex.: for thermal sensor binaries)
-#set ro.product.name as default property so it can not be overwirten by PRODUCT_NAME via build.prop 
-#(ro.* properties are never overwritten after they are defined)
-ADDITIONAL_DEFAULT_PROPERTIES += \
-  ro.product.name=jfltexx
-
-PRODUCT_NAME := aosp_jfltexx
-PRODUCT_MODEL := jfltexx  
+PRODUCT_NAME := jfltexx_gapps

@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
-add_lunch_combo aosp_jfltexx-eng
-add_lunch_combo aosp_jfltexx-user
-add_lunch_combo aosp_jfltexx-userdebug
+add_lunch_combo jfltexx-eng
+add_lunch_combo jfltexx-user
+add_lunch_combo jfltexx-userdebug
+add_lunch_combo jfltexx_gapps-eng
+add_lunch_combo jfltexx_gapps-user
+add_lunch_combo jfltexx_gapps-userdebug

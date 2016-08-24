@@ -314,3 +314,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Common Qualcomm
 $(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+
+# Open Gapps
+ifneq ($(GAPPS_VARIANT),)
+GAPPS_FORCE_PACKAGE_OVERRIDES := true
+$(call inherit-product, vendor/google/build/opengapps-packages.mk)
+endif
+

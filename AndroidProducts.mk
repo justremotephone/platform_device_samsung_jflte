@@ -10,4 +10,5 @@
   #
 
   PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_jfltexx.mk
+    $(LOCAL_DIR)/jfltexx.mk \
+    $(LOCAL_DIR)/jfltexx_gapps.mk

@@ -31,8 +31,8 @@ import init.target.rc
 import init.carrier.rc
 
 on init
-    # Use this trick to get a running rild
-    export LD_SHIM_LIBS /system/lib/libril.so|libril_jflte.so
+    # Use this trick to get a running rild and to allow loading libwvm.so
+    export LD_SHIM_LIBS /system/lib/libril.so|libril_jflte.so:/system/lib/libwvm.so|libwvm_jflte.so
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system

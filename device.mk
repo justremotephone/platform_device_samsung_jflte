@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libril_jflte
 
+# RIL
+PRODUCT_PACKAGES += \
+    libwvm_jflte
+    
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf \

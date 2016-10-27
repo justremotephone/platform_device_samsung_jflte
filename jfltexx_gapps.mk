@@ -25,7 +25,8 @@
 $(call inherit-product, device/samsung/jflte/jfltexx.mk)
 
 # Open Gapps
-GAPPS_VARIANT := full
+GAPPS_VARIANT := stock
+GAPPS_FORCE_PIXEL_LAUNCHER := true
 $(call inherit-product, vendor/google/build/opengapps-packages.mk)
 
 PRODUCT_NAME := jfltexx_gapps

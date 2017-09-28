@@ -3,3 +3,6 @@
 
 # cannot take spaces
 rild.libargs=-d /dev/smd0
+
+# disable sdcardfs usage (does not work with the current kernel)
+ro.sys.sdcardfs=false

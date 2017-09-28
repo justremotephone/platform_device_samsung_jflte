@@ -176,6 +176,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
+   
+#our sensor hidl service needs to be in the input user group:  
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sensors/android.hardware.sensors@1.0-service.rc:system/vendor/etc/init/android.hardware.sensors@1.0-service.rc
+        
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \

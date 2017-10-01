@@ -251,6 +251,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    RildService \
     libril_jflte
 
 # RIL

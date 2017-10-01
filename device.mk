@@ -24,6 +24,10 @@ $(call inherit-product-if-exists, vendor/samsung/jf-common/jf-common-vendor.mk)
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/jflte/overlay
 
+# Vendor Interface Manifest
+PRODUCT_COPY_FILES += \
+    device/samsung/jflte/manifest.xml:system/vendor/manifest.xml
+    
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \

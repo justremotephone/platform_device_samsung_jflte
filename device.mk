@@ -80,6 +80,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audio.a2dp.default \
     audio.primary.msm8960 \
     audio.r_submix.default \
@@ -108,6 +110,10 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
     copybit.msm8960 \
     gralloc.msm8960 \
     hwcomposer.msm8960 \
@@ -147,8 +153,19 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8960
+    lights.msm8960 \
+    android.hardware.light@2.0-impl
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
+    
 # Loki
 PRODUCT_PACKAGES += \
     loki_tool \
@@ -178,8 +195,18 @@ PRODUCT_COPY_FILES += \
 #    com.android.nfc_extras \
 #    android.hardware.nfc@1.0-impl
 
+# Thermal HAL
 PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl
 
+#GNSS HAL
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl
+
+#USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+    
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     $(LOCAL_PATH)/configs/nfcee_access.xml:system/etc/nfcee_access.xml

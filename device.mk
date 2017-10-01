@@ -222,6 +222,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwvm_jflte
     
+# mpdecision
+PRODUCT_PACKAGES += \
+    mpdecision_jflte
+     
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf \

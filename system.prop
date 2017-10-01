@@ -8,5 +8,8 @@ rild.libargs=-d /dev/smd0
 config.disable_consumerir=true
 config.disable_cameraservice=true
 
+# NFC hall
+ro.hardware.nfc_nci=bcm2079x
+
 # disable sdcardfs usage (does not work with the current kernel)
 ro.sys.sdcardfs=false

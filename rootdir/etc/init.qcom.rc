@@ -519,9 +519,10 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-service charger /sbin/healthd -c
+service charger /charger
     class charger
-    seclabel u:r:healthd:s0
+    critical
+    seclabel u:r:charger:s0
 
 #Disable boot timeout for external modems.
 on property:persist.sys.mdm.timeout_disable=1

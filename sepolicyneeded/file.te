@@ -1,0 +1,2 @@
+# Default type for anything under /firmware. (needed for our fstab)
+type firmware_file, fs_type, contextmount_type;

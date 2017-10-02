@@ -254,6 +254,9 @@ PRODUCT_PACKAGES += \
     RildService \
     libril_jflte
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ril/rild.rc:system/vendor/etc/init/rild.rc
+    
 # RIL
 PRODUCT_PACKAGES += \
     libwvm_jflte

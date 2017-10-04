@@ -31,7 +31,6 @@
 #include <utils/String8.h>
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
-#include <camera/Camera.h>
 #include <camera/CameraParameters.h>
 
 const char KEY_SUPPORTED_ISO_MODES[] = "iso-values";

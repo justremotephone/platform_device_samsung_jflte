@@ -277,10 +277,10 @@ on post-fs-data
     chown wifi wifi /sys/module/dhd/parameters/firmware_path
     
 #start camera server as daemon
-#service qcamerasvr /system/bin/mm-qcamera-daemon
-#    class late_start
-#    user camera
-#    group camera system inet input graphics net_bt_stack
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input graphics net_bt_stack
 
 service thermal-engine /system/bin/thermal-engine
     class main

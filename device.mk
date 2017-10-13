@@ -98,9 +98,23 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bcm4335_prepatch.hcd:system/vendor/firmware/prepatch/bcm4335_prepatch.hcd
 
 #Camera Wrapper
-#PRODUCT_PACKAGES += \
-#    camera.msm8960
+PRODUCT_PACKAGES += \
+    camera.msm8960 \
+    libcamera \
+    libmmcamera_interface \
+    libmmcamera_interface2 \
+    libmmjpeg_interface \
+    libqomx_core \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl
+        
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.media.treble_omx=false
  
+#unsupported for Android O:   
+#    media.stagefright.legacyencoder=true \
+#    media.stagefright.less-secure=true
+    
 # CRDA
 PRODUCT_PACKAGES += \
     crda \

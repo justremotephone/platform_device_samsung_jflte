@@ -377,6 +377,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
     ro.vendor.extension_library=libqti-perfd-client.so
 
+# factory reset protection partition
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.frp.pst=/dev/block/platform/msm_sdcc.1/by-name/persist
+
 # ril
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=jflteRIL

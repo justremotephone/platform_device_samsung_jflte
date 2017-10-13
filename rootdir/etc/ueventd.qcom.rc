@@ -181,3 +181,6 @@
 
 # sensorhub
 /dev/ssp_sensorhub        0660   system     system
+
+# factory reset protection partition
+/dev/block/platform/msm_sdcc.1/by-name/persist 0600 system system

@@ -36,6 +36,11 @@
 #include <camera/CameraParameters.h>
 #include <dlfcn.h>
 
+const char KEY_SUPPORTED_ISO_MODES[] = "iso-values";
+const char KEY_ISO_MODE[] = "iso";
+const char KEY_ZSL[] = "zsl";
+const char KEY_CAMERA_MODE[] = "camera-mode";
+
 #define BACK_CAMERA_ID 0
 #define FRONT_CAMERA_ID 1
 
@@ -297,22 +302,22 @@ static int camera_set_parameters(struct camera_device *device,
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
     if(_params.get("iso")) {
-        const char* isoMode = _params.get(android::CameraParameters::KEY_ISO_MODE);
+        const char* isoMode = _params.get(KEY_ISO_MODE);
         if(strcmp(isoMode, "ISO100") == 0)
-            _params.set(android::CameraParameters::KEY_ISO_MODE, "100");
+            _params.set(KEY_ISO_MODE, "100");
         else if(strcmp(isoMode, "ISO200") == 0)
-            _params.set(android::CameraParameters::KEY_ISO_MODE, "200");
+            _params.set(KEY_ISO_MODE, "200");
         else if(strcmp(isoMode, "ISO400") == 0)
-            _params.set(android::CameraParameters::KEY_ISO_MODE, "400");
+            _params.set(KEY_ISO_MODE, "400");
         else if(strcmp(isoMode, "ISO800") == 0)
-            _params.set(android::CameraParameters::KEY_ISO_MODE, "800");
+            _params.set(KEY_ISO_MODE, "800");
         else if(strcmp(isoMode, "ISO1600") == 0)
-            _params.set(android::CameraParameters::KEY_ISO_MODE, "1600");
+            _params.set(KEY_ISO_MODE, "1600");
     }
     
     if (id != 1) {
-	_params.set(android::CameraParameters::KEY_ZSL, isVideo ? "off" : "on");
-	_params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
+	_params.set(KEY_ZSL, isVideo ? "off" : "on");
+	_params.set(KEY_CAMERA_MODE, isVideo ? "0" : "1");
     }
     
     String8 strParams = _params.flatten();
@@ -344,7 +349,7 @@ static char *camera_get_parameters(struct camera_device *device)
     _params.unflatten(android::String8(params));
     
     // fix params here
-    _params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
+    _params.set(KEY_SUPPORTED_ISO_MODES, iso_values[id]);
     
     /* Exposure */
     _params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "0.5");

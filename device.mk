@@ -267,17 +267,19 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # RIL
+ifeq ($(BOARD_UES_PREBUILD_VENDOR_LIBRIL),true)
 PRODUCT_PACKAGES += \
-    RildService \
-    libril_jflte
+    RildService
+endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ril/rild.rc:system/vendor/etc/init/rild.rc
-    
-# RIL
+#only needed for the prebuild ril but we needed for our current shimlib setting:
 PRODUCT_PACKAGES += \
+    libril_jflte \
     libwvm_jflte
     
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ril/rild.rc:system/vendor/etc/init/rild.rc
+        
 # mpdecision
 PRODUCT_PACKAGES += \
     mpdecision_jflte

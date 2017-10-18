@@ -23,6 +23,17 @@
 
 $(call inherit-product, device/samsung/jflte/aosp_jflte.mk)
 
+# RIL
+BOARD_UES_PREBUILD_VENDOR_LIBRIL := false
+
+ifeq ($(BOARD_UES_PREBUILD_VENDOR_LIBRIL), true)
+    BOARD_PROVIDES_RILD := true
+    BOARD_PROVIDES_LIBRIL := true
+else
+    #build our own libril but with lagacy QCOM support
+    BOARD_USES_QCOM_LEGACY_RIL := true
+endif
+
 #needed properties and vendor blobs for GSM
 TARGET_SYSTEM_PROP += device/samsung/jflte/system.jfgsm.prop
 TARGET_NEEDS_JF_GSM_VENDOR_BLOBS := true

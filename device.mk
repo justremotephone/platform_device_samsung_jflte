@@ -183,6 +183,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.bluetooth@1.0-service
     
+# Currently we need root for our Bluetooth HAL service
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/android.hardware.bluetooth@1.0-service.rc:system/vendor/etc/init/android.hardware.bluetooth@1.0-service.rc
+    
 # Loki
 PRODUCT_PACKAGES += \
     loki_tool \
@@ -310,6 +314,11 @@ PRODUCT_PACKAGES += \
     wifilogd \
     android.hardware.wifi@1.0-impl \
     android.hardware.wifi@1.0-service
+
+# Currently we need root for our Wifi HAL service
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/android.hardware.wifi@1.0-service.rc:system/vendor/etc/init/android.hardware.wifi@1.0-service.rc
+
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf \

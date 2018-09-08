@@ -286,7 +286,7 @@ PRODUCT_PACKAGES += \
     libwvm_jflte
     
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ril/rild.rc:system/vendor/etc/init/rild.rc
+    $(LOCAL_PATH)/ril/rild.rc:system/vendor/etc/init/rild.legacy.rc
         
 # mpdecision
 PRODUCT_PACKAGES += \

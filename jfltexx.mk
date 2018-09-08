@@ -27,7 +27,7 @@ $(call inherit-product, device/samsung/jflte/aosp_jflte.mk)
 BOARD_UES_PREBUILD_VENDOR_LIBRIL := false
 
 ifeq ($(BOARD_UES_PREBUILD_VENDOR_LIBRIL), true)
-    BOARD_PROVIDES_RILD := true
+    ENABLE_VENDOR_RIL_SERVICE := true
     BOARD_PROVIDES_LIBRIL := true
 else
     #build our own libril but with lagacy QCOM support

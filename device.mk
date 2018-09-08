@@ -270,6 +270,10 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
+    android.hardware.power@1.0-service
+
 # RIL
 ifeq ($(BOARD_UES_PREBUILD_VENDOR_LIBRIL),true)
 PRODUCT_PACKAGES += \

@@ -189,6 +189,8 @@ on post-fs-data
     chmod 0770 /system/etc/wifi
     chmod 0660 /system/etc/wifi/wpa_supplicant.conf
     chown wifi wifi /system/etc/wifi/wpa_supplicant.conf
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     #wpa_supplicant control socket for android wifi.c (android private socket)
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -394,10 +396,11 @@ service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     disabled
     oneshot
 
+#    -ip2p0 -Dnl80211 -c/data/vendor/wifi/wpa/p2p_supplicant.conf \
+#    -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
+
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
-    -I/vendor/etc/wifi/p2p_supplicant_overlay.conf -N \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -iwlan0 -Dnl80211 -c/vendor/etc/wifi/wpa_supplicant.conf \
     -I/vendor/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0

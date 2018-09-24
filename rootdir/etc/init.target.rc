@@ -276,6 +276,10 @@ on post-fs-data
     # WIFI
     chown wifi wifi /sys/module/dhd/parameters/firmware_path
     
+# Allow writing to the kernel trace log. (this is needed for gapps wizard for Android P. This should be done on late-init in atrace.rc but late-init is to late because
+# atrace.rc is in system which is mounted on fs. So atrace.rc should be fixed to perform the settings in post-fs....)
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
